@@ -7,8 +7,8 @@
 
 PCalc_T::PCalc_T(unsigned int array_size, unsigned int inputNumOfThreads) : PCalc(array_size)
 {
+    //initializes number of threads to be created
     this->numOfThreads = inputNumOfThreads;
-
 }
 
 PCalc_T::~PCalc_T()
