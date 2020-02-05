@@ -9,4 +9,25 @@
 // This class should manage the single process implementation of the prime number generator. I'd recommend
 // getting this working first, then tackling multithreaded
 
+class PCalc_SP : public PCalc
+{
+public:
+
+
+    //called virtual in parent class
+    virtual ~PCalc_SP() override;
+
+    virtual void markNonPrimes() override;
+
+    //called virtual in parent class
+    virtual void cleanup() override;
+
+//protected:
+    //should call parent constructor
+    PCalc_SP(unsigned int array_size);
+
+private:
+
+};
+
 #endif
