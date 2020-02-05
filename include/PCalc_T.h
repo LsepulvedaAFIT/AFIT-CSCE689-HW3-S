@@ -33,9 +33,13 @@ public:
     PCalc_T(unsigned int array_size, unsigned int inputNumOfThreads);
 
 private:
+
+    //keeps track of the highes prime number being processed to avoid override
     unsigned int threadPosition = 0;
+
     int numOfThreads = 0;
 
+    //keeps track of spawned threads 
     std::vector<std::thread> vectOfThreads;
 
 
