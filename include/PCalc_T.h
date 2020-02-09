@@ -4,6 +4,7 @@
 #include "PCalc.h"
 #include <vector>
 #include <thread>
+#include <mutex>
 
 // Your implementation of PCalc_T class should go here. 
 // Make sure your constructor takes in two parameters:
@@ -37,6 +38,10 @@ private:
     //keeps track of the highes prime number being processed to avoid override
     unsigned int threadPosition = 0;
 
+    //mutex to prevent dual writes
+    std::mutex mu;
+
+    //keeps track of the number threads that have been spawned
     int numOfThreads = 0;
 
     //keeps track of spawned threads 

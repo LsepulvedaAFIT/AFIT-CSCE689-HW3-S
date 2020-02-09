@@ -4,6 +4,7 @@
 #include <thread>
 #include <vector>
 #include <cmath>
+#include <mutex>
 
 PCalc_T::PCalc_T(unsigned int array_size, unsigned int inputNumOfThreads) : PCalc(array_size)
 {
@@ -59,7 +60,9 @@ void PCalc_T::primesThread(int startVal){
         else if (this->at(i) == 1)
         {
             //updates threadPosition counter to prevent race conditions
+            this->mu.lock();
             this->threadPosition = i;
+            this->mu.unlock();
 
             //marks all multiples of it
             for (unsigned int j = i * i; j <= this->array_size(); j = j + i)
